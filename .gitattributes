@@ -1,0 +1,8 @@
+# 统一检出为 LF。清单/sha 按 LF 归一化字节口径，与基座 holoaeon 一致。
+* text=auto eol=lf
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary

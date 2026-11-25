@@ -1,0 +1,29 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
+*.pem
+secrets/
+
+# 备份残件
+*.bak
+*.bak_*
+
+# 注：本批令「首笔 commit 含投喂包」，故不设 /AGENT_FEED_*.md 排除行（与 mirraeon 差异登记于 reports/qc_v1_receipt.json）
