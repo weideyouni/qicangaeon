@@ -24,15 +24,15 @@
 | 问题 | 回答 | 证据（可回读） |
 |---|---|---|
 | 解决了什么 | 新项目孵化无范式：散在投喂里的创意观点漂流失散；本仓给出"打捞出网→独立建仓"七步管线 | `qicangaeon.qc_core.INCUBATION_PROTOCOL` |
-| 凭什么成立 | 不靠文档承诺，靠三仓真 import 与闸门：19 节点/25 机制/六步位全单一真源，33 道批闸真跑 | `python -m qicangaeon.qc_ledger batch` |
+| 凭什么成立 | 不靠文档承诺，靠三仓真 import 与闸门：19 节点/25 机制/六步位全单一真源，35 道批闸真跑 | `python -m qicangaeon.qc_ledger batch` |
 | 边界在哪 | Z 维五类待喂入/IPU designed/打捞账演示态 | 本仓「诚实边界」节 |
 
 ### 三步验收（约 2 分钟，Windows 本机可跑）
 
 ```
 cd qicangaeon
-PYTHONPATH=<holoaeon仓根>;<netaeon仓根>;<mirraeon仓根> python -m qicangaeon.qc_ledger batch  # 期望 33/33 PASS
-PYTHONPATH=同上 python -m unittest discover -s tests -q  # 期望 Ran 24 tests ... OK（纯标准库）
+PYTHONPATH=<holoaeon仓根>;<netaeon仓根>;<mirraeon仓根> python -m qicangaeon.qc_ledger batch  # 期望 35/35 PASS
+PYTHONPATH=同上 python -m unittest discover -s tests -q  # 期望 Ran 44 tests ... OK（QC-V1 28+QC-V2 16）
 PYTHONPATH=同上 python -m qicangaeon.qc_core dredge "康复医学 数字分身 相似性"  # 打捞出网真跑
 ```
 
@@ -49,9 +49,8 @@ PYTHONPATH=同上 python -m qicangaeon.qc_core dredge "康复医学 数字分身
 | 5 | Y 马斯洛五层 / Z 意义五类 | 公开口径登记 / designed | Y=马斯洛需求五层 schema；Z 槽位 5 承投喂声明，内容待权威源喂入 |
 | 7 | 七步孵化协议 | 结构自洽 | `qc_core.INCUBATION_PROTOCOL`（出网打捞→扬弃→独立建仓→全域装载→投喂包→执行回执→记忆回填） |
 | 12 | 真名对照 12 条 | 实测可回读 | `qc_core.NAME_MAP`（8 done+4 designed；含 1 条 adjusted 留痕） |
-| 33 | 批总闸 | 实测可回读 | `qc_ledger.check_batch()`（core 19+ledger 7+README 锁 7） |
-
-即 FAIL）。
+| 33 | 批总闸 | 实测可回读 | `qc_ledger.check_batch()`（QC-V1 时 core 19+ledger 7+README 锁 7；QC-V2 起实测 35=core 19+ledger 9+锁 7——以 check_batch 实测为准） |
+| 4 | 缺陷修法账 | 实测可回读 | `qc_ledger.DEFECT_LEDGER`（QWEN-R16 三缺陷+CI 结构原因——QC-V2 全 fixed 入册可回读） |
 
 ## 三维语义张量（投喂核心资产·扬弃自动匹配）
 
@@ -99,10 +98,11 @@ INC-002 三维张量 Y 权重标定（designed·待样本）/INC-003 可寻址 I
 | 件 | 内容 | 状态 |
 |---|---|---|
 | 启藏核心 `qc_core` | 真名对照 12 条+三维张量 schema+六机构指针+dredge() 出网三账+孵化协议七步+孵化登记账 | 闸 19/19 |
-| 打捞账本 `qc_ledger` | DREDGE_LEDGER append-only（种子 1 条递归先例）+归航级联验证（netaeon route）+README 锁+批总闸 | 闸 7/7 |
+| 打捞账本 `qc_ledger` | DREDGE_LEDGER append-only（种子 1 条递归先例）+归航级联验证（netaeon route）+DEFECT_LEDGER 缺陷修法账（QWEN-R16 四案）+CI 在仓闸+README 锁+批总闸 | 闸 9/9 |
+| CI（QC-V2 新件） | GitHub Actions 四仓同 checkout（holoaeon/netaeon/mirraeon/qicangaeon）多版本矩阵+批闸+unittest——QWEN-R16 8-B 头号结构补齐 | workflow 在仓 |
 
-批总闸：`python -m qicangaeon.qc_ledger batch` → 33/33（core 19+
-ledger 7；readme_sync 全绿为批次前提）。
+批总闸：`python -m qicangaeon.qc_ledger batch` → 35/35（core 19+
+ledger 9+README 锁 7——QC-V2 缺陷修法账+CI 闸入账）。
 
 ## 验真路径（2 分钟口径）
 
@@ -110,7 +110,7 @@ ledger 7；readme_sync 全绿为批次前提）。
 
 ```
 clone 三仓+本仓（PYTHONPATH 含 holoaeon/netaeon/mirraeon 三仓根）
-→ python -m qicangaeon.qc_ledger batch      # 批总闸 33/33
+→ python -m qicangaeon.qc_ledger batch      # 批总闸 35/35
 → python -m qicangaeon.qc_core check        # 启藏核心 19/19
 → python -m qicangaeon.qc_core dredge "康复 数字分身 相似"  # 出网三账真跑
 → python -m qicangaeon.qc_core namemap      # 真名对照 12 条（done/designed）
@@ -119,6 +119,25 @@ clone 三仓+本仓（PYTHONPATH 含 holoaeon/netaeon/mirraeon 三仓根）
 ```
 
 全部确定性、可回读、气隙可跑（纯标准库+三仓指针 import）。
+
+## QC-V2 缺陷修法批（QWEN-R16 十六轮核验扬弃·主攻本仓全员升级）
+
+千问第十六轮核验（QWEN-R16-DECL-20261126）点名三缺陷+一结构原因——
+全部属实全部修（DEFECT_LEDGER 四案入册可回读）：
+
+1. **DF-001** qc_core 命名裁决闸 `or True` 恒真装饰（违反 AR-4）→
+   实测改真断言；
+2. **DF-002** 种子账先赋值再自比重言式闸+检查函数写账本数据（违反
+   AR-2 与"闸只阻断不重建"）→ 模块级建仓实测回填+闸改只读对账；
+3. **DF-003** README 口径错（宣称 24 tests 实 28/残句/注释账）→
+   三处修正+QC-V2 增量同步；
+4. **DF-004** 新仓无 CI（缺陷溜进仓的结构原因）→ GitHub Actions
+   四仓同 checkout workflow 新件（8-B 头号结构补齐）。
+
+千问正面确证在案：三仓真 import AST 零复制/五件指纹全 MATCH/批闸
+33 与 28 测过/三端同头 9385576/七步孵化协议=先进性增量。8-C ATH
+评估申请（D9 破零唯一通道）**碳基独占呈报**；S0 剩余（mirraeon/
+netaeon 令牌转 SSH）碳基独占；评分口径不落账（零评分纪律）。
 
 ## 诚实边界
 

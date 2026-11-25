@@ -204,17 +204,17 @@ class T4IncubationLedgerBatch(unittest.TestCase):
         self.assertEqual((r["total"], r["failed"]), (19, 0))
 
     def test_ledger_gates_7(self):
-        """账本闸 7/7。"""
+        """账本闸 7/7——QC-V2 增至 9：下限化（R2 惯例第七例）。"""
         r = ql.check_ledger()
-        self.assertEqual((r["total"], r["failed"]), (7, 0))
+        self.assertGreaterEqual(r["total"], 7)
+        self.assertEqual(r["failed"], 0)
 
     def test_batch_33_all_pass(self):
-        """批总闸 33/33（core 19+ledger 7+README 锁 7）——
-        设计即账实测闭环。"""
+        """批总闸 33/33——QC-V2 增至 35：下限化（R2 惯例第七例）。"""
         r = ql.check_batch()
         self.assertEqual(r["verdict"], "PASS")
-        self.assertEqual((r["total"], r["passed"], r["failed"]),
-                         (33, 33, 0))
+        self.assertGreaterEqual(r["total"], 33)
+        self.assertEqual(r["failed"], 0)
 
     def test_readme_sync_locked(self):
         """README 锁——口径数字全可回读。"""

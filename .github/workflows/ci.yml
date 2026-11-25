@@ -1,0 +1,53 @@
+name: ci
+
+# QWEN-R16 8-B 头号补齐（QC-V2）：新仓 CI——缺陷不再只靠人工
+# 核验拦截。承 holoaeon CI 先例（多版本矩阵+批闸+unittest）。
+# qicangaeon 三仓真 import（netaeon 19 节点/holoaeon 25 机制/
+# mirraeon 六步位）——四仓同 checkout，PYTHONPATH 指三仓根。
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - name: Checkout qicangaeon
+        uses: actions/checkout@v4
+      - name: Checkout holoaeon (25 mechanisms)
+        uses: actions/checkout@v4
+        with:
+          repository: weideyouni/holoaeon
+          path: holoaeon
+      - name: Checkout netaeon (19 nodes)
+        uses: actions/checkout@v4
+        with:
+          repository: weideyouni/netaeon
+          path: netaeon
+      - name: Checkout mirraeon (six-step routing)
+        uses: actions/checkout@v4
+        with:
+          repository: weideyouni/mirraeon
+          path: mirraeon
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Batch gates (33/33 expected)
+        env:
+          PYTHONPATH: ${{ github.workspace }}/holoaeon:${{ github.workspace }}/netaeon:${{ github.workspace }}/mirraeon
+        run: |
+          cd ${{ github.workspace }}
+          python -m qicangaeon.qc_ledger batch
+      - name: Unit tests (discover)
+        env:
+          PYTHONPATH: ${{ github.workspace }}/holoaeon:${{ github.workspace }}/netaeon:${{ github.workspace }}/mirraeon
+        run: |
+          cd ${{ github.workspace }}
+          python -m unittest discover -s tests -v

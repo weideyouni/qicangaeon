@@ -367,11 +367,12 @@ def check_qc_core() -> Dict[str, Any]:
         "ring24（当前链 ring23+1）——投喂自称 ring-25 口径 "
         "adjusted 在案（承 C08 同型先例）")
     add("netaeon_name_conflict_resolved",
-        "打捞之网" in REPO_CN and "qicangaeon" in SCHEMA.lower()
-        or True,
+        "打捞之网" in REPO_CN
+        and "qicangaeon" in SCHEMA.lower(),
         "命名裁决：netaeon 中文名'打捞之网'（归航路由）不动，"
         "启藏=主动出网版（qicangaeon 纪元族第六员）——同中文"
-        "名冲突由英文主键消解")
+        "名冲突由英文主键消解（QC-V2 修法：QC-V1 此闸含 or "
+        "True 恒真装饰——QWEN-R16 缺陷一，实测改真断言）")
 
     failed = [c for c in checks if not c["ok"]]
     return {"schema": SCHEMA, "batch": BATCH, "seal": SEAL,
