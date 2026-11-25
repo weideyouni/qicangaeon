@@ -1,60 +1,16 @@
 {
- "schema": "QICANGAEON-RECEIPT/1.0",
  "batch": "QC-V1",
- "seal": "潮起开门，潮落闭嘴",
- "signature": "桃花庵出品",
- "project": "中科国度",
- "repo": {
-  "path": "F:\\doubaowork\\qicangaeon",
-  "head": "1d931693042db2b4315e9fbfdaeaf3a79dbb05ce",
-  "branch": "master",
-  "tracked": 8
- },
- "gates": {
-  "batch": {
-   "total": 33,
-   "passed": 33,
-   "failed": 0,
-   "verdict": "PASS",
-   "parts": {
-    "qc_core": {
-     "total": 19,
-     "passed": 19,
-     "failed": 0,
-     "verdict": "PASS"
-    },
-    "qc_ledger": {
-     "total": 7,
-     "passed": 7,
-     "failed": 0,
-     "verdict": "PASS"
-    },
-    "readme_sync": {
-     "total": 7,
-     "passed": 7,
-     "failed": 0,
-     "verdict": "PASS"
-    }
-   }
-  },
-  "tests": [
-   {
-    "python": "Python",
-    "rc": 0,
-    "ran": 28,
-    "verdict": "OK",
-    "tail": []
-   },
-   {
-    "python": "uv",
-    "rc": 0,
-    "ran": 28,
-    "verdict": "OK",
-    "tail": []
-   }
-  ]
- },
  "fingerprints": {
+  "AGENT_FEED": {
+   "bytes": 10518,
+   "md5_16": "1fa3232a0627d69e",
+   "sha256_16": "948bfc7c371c64cf"
+  },
+  "README.md": {
+   "bytes": 8609,
+   "md5_16": "415d377cc3f675d6",
+   "sha256_16": "cbc68f4d9ba86030"
+  },
   "qicangaeon/qc_core.py": {
    "bytes": 20198,
    "md5_16": "b890315be40a713f",
@@ -69,29 +25,102 @@
    "bytes": 8836,
    "md5_16": "3e59fc923b1cbe2d",
    "sha256_16": "ea45deaff19c765c"
-  },
-  "README.md": {
-   "bytes": 8609,
-   "md5_16": "415d377cc3f675d6",
-   "sha256_16": "cbc68f4d9ba86030"
-  },
-  "AGENT_FEED": {
-   "bytes": 10518,
-   "md5_16": "1fa3232a0627d69e",
-   "sha256_16": "948bfc7c371c64cf"
   }
  },
  "five_site": {
   "S1_local": "PASS",
-  "S2_gitee": "PENDING",
-  "S3_github": "PENDING",
-  "S4_vector_sea": "PENDING",
-  "S5_hf": "PENDING"
+  "S2_gitee": "PASS",
+  "S3_github": "PASS",
+  "S4_vector_sea": "PENDING（vector-sea 编号件 268 承接，AR-2 派生位互证）",
+  "S5_hf": "PASS"
+ },
+ "five_site_evidence": {
+  "S2_gitee": {
+   "head": "24acdcad34b4aa672c935d3566cf05e1b0906894",
+   "probe": "git ls-remote gitee HEAD 回读同头",
+   "url": "https://gitee.com/weideyouni/qicangaeon"
+  },
+  "S3_github": {
+   "head": "24acdcad34b4aa672c935d3566cf05e1b0906894",
+   "probe": "git ls-remote github HEAD 回读同头",
+   "url": "https://github.com/weideyouni/qicangaeon"
+  },
+  "S5_hf": {
+   "commit": "51fc10ca8d42e524d4c4398ceb83ac8c25eea7ac",
+   "files": 10,
+   "mismatch": [],
+   "repo_id": "weideyouni/qicangaeon",
+   "repo_type": "model",
+   "verdict": "PASS"
+  }
+ },
+ "gates": {
+  "batch": {
+   "failed": 0,
+   "parts": {
+    "qc_core": {
+     "failed": 0,
+     "passed": 19,
+     "total": 19,
+     "verdict": "PASS"
+    },
+    "qc_ledger": {
+     "failed": 0,
+     "passed": 7,
+     "total": 7,
+     "verdict": "PASS"
+    },
+    "readme_sync": {
+     "failed": 0,
+     "passed": 7,
+     "total": 7,
+     "verdict": "PASS"
+    }
+   },
+   "passed": 33,
+   "total": 33,
+   "verdict": "PASS"
+  },
+  "tests": [
+   {
+    "python": "Python",
+    "ran": 28,
+    "rc": 0,
+    "tail": [],
+    "verdict": "OK"
+   },
+   {
+    "python": "uv",
+    "ran": 28,
+    "rc": 0,
+    "tail": [],
+    "verdict": "OK"
+   }
+  ]
  },
  "notes": [
   "四件字节锁定为交付基线（指纹链优先），README 口径缺陷与 qc_core 装饰闸登记 INC-004 不擅改",
   "打捞账演示态 1 条；真实入账由执行端 append_dredge()（AR-4 权威）",
   "归航级联 verdict=unknown 如实登记；扩键点单制不抢跑",
-  "解释器口径：py311 = Programs\\Python\\Python311；py313 = uv cpython-3.13.15"
- ]
+  "解释器口径：py311 = Programs\\Python\\Python311；py313 = uv cpython-3.13.15",
+  "五地：S4 由 vector-sea 编号件 268_five_site_remote_qc_v1.json 承接（派生位互证，本回执不预填）；S5 为 10 件全量镜像 blob 判等 mismatch=[]",
+  "本回执为二次提交（refresh）：repo.tracked 8→10、five_site 三态由 PENDING 转 PASS、td_0003 落账"
+ ],
+ "project": "中科国度",
+ "repo": {
+  "branch": "master",
+  "head": "24acdcad34b4aa672c935d3566cf05e1b0906894",
+  "head_note": "HEAD 为 amend 后 24acdca（首提交 1d93169 已 --amend 补入 PROJECT_ENTRY.json 与回执）；tracked 10",
+  "path": "F:\\doubaowork\\qicangaeon",
+  "tracked": 10
+ },
+ "schema": "QICANGAEON-RECEIPT/1.0",
+ "seal": "潮起开门，潮落闭嘴",
+ "signature": "桃花庵出品",
+ "td_0003": {
+  "ledger": "mirraeon/mirraeon/legion_dispatch.py#DISPATCH_LEDGER",
+  "mirraeon_head": "ba6ff0f736c18c21893df4fb1ef1e7fc8d3a814f",
+  "note": "处置权分离：mirraeon 只派单登记，advance(reported/audited) 由执行端凭 evidence 推进",
+  "state": "dispatched"
+ }
 }
