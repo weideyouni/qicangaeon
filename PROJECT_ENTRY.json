@@ -1,0 +1,80 @@
+{
+ "schema": "QICANGAEON-PROJECT-ENTRY/1.0",
+ "seal": "潮起开门，潮落闭嘴",
+ "project": "qicangaeon",
+ "project_cn": "启藏·文明挖掘环（打捞之网·主动出网版）",
+ "series": "QC",
+ "version": "0.1.0",
+ "batch": "QC-V1",
+ "ring": 24,
+ "family": "纪元族第六员（ring24 文明挖掘环）",
+ "repo": {
+  "path": "F:\\doubaowork\\qicangaeon",
+  "kind": "独立 git 仓（standalone）——不嵌套于 holoaeon/netaeon，不共用工作区",
+  "branch": "master",
+  "head": "1d931693042db2b4315e9fbfdaeaf3a79dbb05ce",
+  "commits": [
+   "1d93169 QC-V1: qicangaeon 启藏建仓 v0.1.0（core/ledger/tests + 投喂包 + 仓脚手架；批闸 33/33，28 例双解释器）"
+  ],
+  "tracked_files": 8,
+  "remote": {
+   "gitee": "https://gitee.com/weideyouni/qicangaeon.git",
+   "github": "https://github.com/weideyouni/qicangaeon.git"
+  },
+  "open_source": "观阅（public 只读，许看不许分发；非开源授权）",
+  "remote_note": "本批建仓；head 为本地代码快照，远端 HEAD 以 ls-remote 为准"
+ },
+ "entry_docs": {
+  "readme": "README.md（价值仲裁观阅三问三答 / 三步验收 / 数字口径对账表 / 三维语义张量 / 真名对照 / 七步孵化协议 / 工程结构 / 诚实边界 / 封口密语）",
+  "feeds": [
+   "AGENT_FEED_QC-V1_QICANGAEON_SALVAGE_NET_GLOBAL_INCUBATION_20261125.md（仓根，首笔 commit 含）",
+   "docs/AGENT_FEED_QC-V1_QICANGAEON_SALVAGE_NET_GLOBAL_INCUBATION_20261125.md（归档副本）"
+  ],
+  "receipts": [
+   "reports/qc_v1_receipt.json（本批验收回执）"
+  ],
+  "commits_note": "第二笔提交＝本件 + reports/qc_v1_receipt.json（逐件显式 add，禁 git add -A）"
+ },
+ "code_map": {
+  "qicangaeon/qc_core.py": "启藏核心（RING=24 / 19 节点 × 25 机制回读 / NAME_MAP 12 / QC_TENSOR / BUREAU_MAP 6 / dredge 确定性锚 / 七步孵化协议 / 19 闸）",
+  "qicangaeon/qc_ledger.py": "启藏账本（DREDGE_LEDGER 种子 1 条 / append_dredge 点单入账 / 7 闸 / check_batch 批总闸）",
+  "tests/test_qc1_core.py": "QC-V1 测试 28 例（T1 5 / T2 8 / T3 6 / T4 9）"
+ },
+ "gates": {
+  "batch": "33/33 PASS（qc_core 19 / qc_ledger 7 / readme_sync 7）",
+  "tests": "28/28 OK（py3.11.9 0.042s / py3.13.15 0.036s，双解释器 rc=0）",
+  "cross_call": "from qicangaeon import qc_core, qc_ledger → qc_core.check_qc_core() / qc_ledger.check_batch()",
+  "fingerprints": {
+   "qc_core.py": "20198B md5-16 b890315be40a713f sha256-16 af26dc5f7d455bb0",
+   "qc_ledger.py": "9424B md5-16 7f9922754e53f517 sha256-16 5cee6691019ba3d6",
+   "tests/test_qc1_core.py": "8836B md5-16 3e59fc923b1cbe2d sha256-16 ea45deaff19c765c",
+   "README.md": "8609B md5-16 415d377cc3f675d6 sha256-16 cbc68f4d9ba86030"
+  },
+  "base_registration": "holoaeon DOC 0.9.97（本批递版）/ GLOBAL_LOAD 七仓 / TD-0003"
+ },
+ "five_site": {
+  "S1_local": "PASS（HEAD 1d93169，tracked 8）",
+  "S2_gitee": "PENDING（本批建仓并推 master）",
+  "S3_github": "PENDING（本批建仓并推 master）",
+  "S4_vector_sea": "PENDING（vector-sea 编号件 265 承接）",
+  "S5_hf": "PENDING（weideyouni/qicangaeon 镜像）"
+ },
+ "ring24_semantics": {
+  "authority": "本仓自述：出网侧（需求→去哪些仓打捞什么）",
+  "sister": "netaeon 打捞之网（归航侧：文本→归哪个仓）——两网级联，本批不抢跑扩键",
+  "cascade": "net_core.route(...) 实测 schema NETAEON-NET/1.0；归航级联 verdict=unknown 如实登记"
+ },
+ "honest_boundaries": [
+  "Z 维五类内容待喂入：designed 槽位声明，非内容声明",
+  "IPU designed：不落账、不虚称已建",
+  "打捞账演示态：种子 1 条 DR-0001，真实打捞由执行端 append_dredge() 入账，验收权威＝执行端回执 AR-4",
+  "Y 权重未标定（INC-002）：只声明马斯洛五层映射，不给权重分",
+  "零评分：dredge 命中＝确定性双向子串 M07 锚，非相似度模型；涌现判定归 quartet_toolkit",
+  "归航级联 verdict=unknown 不虚称全通",
+  "19 仓库由 designed 翻 done 并带 adjusted 口径（netaeon 19 节点注册表在案）",
+  "缺陷登记 INC-004：qc_core 断言尾 `or True` 恒真装饰闸（19 闸实际有效 18）、README「Ran 24 tests」实跑 28 例口径漂移、README L54 残句、qc_ledger append_rejects_empty 的 n0 未参与判定——本批不擅改四件字节（改则破坏投喂指纹表），留待点单修订"
+ ],
+ "draft_note": "初稿 · 供内部讨论，非最终稿",
+ "honest_note": "本条目为仓内自述入口；与仓根 reports/qc_v1_receipt.json 同口径",
+ "head_note": "head 记首笔代码快照 1d93169；本件（PROJECT_ENTRY.json + reports/qc_v1_receipt.json）随第二笔提交入仓，装载链 head 期望取 holoaeon_memory/project_registry.json 的 head_20261125 实测值"
+}
