@@ -45,12 +45,13 @@ jobs:
         run: |
           mode=full
           for d in holoaeon netaeon mirraeon; do
-            if [ -d "$d" ] && [ -n "$(ls -A "$d" 2>/dev/null)" ]; then
-              echo "$d: present ($(ls -A "$d" | wc -l) entries)"
+            n=$(find "$d" -mindepth 1 -maxdepth 1 -not -name .git 2>/dev/null | wc -l)
+            if [ "${n:-0}" -gt 0 ]; then
+              echo "$d: present ($n entries)"
             else
-              echo "$d: ABSENT or EMPTY (failed checkout leaves an empty dir; private repo needs QC_DEPS_TOKEN secret)"
+              echo "$d: ABSENT or EMPTY (failed private-repo checkout leaves only .git; needs QC_DEPS_TOKEN secret)"
               mode=degraded
-              rmdir "$d" 2>/dev/null || true
+              rm -rf "$d" 2>/dev/null || true
             fi
           done
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
