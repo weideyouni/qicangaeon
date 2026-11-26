@@ -92,7 +92,10 @@ designed（4 条，不落 real 值不虚称）：108641/贝叶斯衍射 15 模�
 孵化登记账（`INCUBATION_REGISTRY`）：INC-001 qicangaeon（done·本批）/
 INC-002 三维张量 Y 权重标定（designed·待样本）/INC-003 可寻址 IPU
 （designed·待喂入）/INC-004 qixiaeon 启曦（done·QX-V1 跨仓派单，
-首笔 d299ecd；本仓管孵化、qixiaeon 管生成骨架，两环相邻同承 M07）。
+首笔 d299ecd；本仓管孵化、qixiaeon 管生成骨架，两环相邻同承 M07）
+/INC-005 eduaeon 教育环（done·ED-V1 跨仓派单，首笔 dc132769；
+本仓管孵化、eduaeon 管教育域垂类——EduRing→holoaeon.edu_gate
+ring8 为机制真源，域层与机制层不混）。
 
 ## 工程结构（实测口径）
 
@@ -103,7 +106,7 @@ INC-002 三维张量 Y 权重标定（designed·待样本）/INC-003 可寻址 I
 | CI（QC-V2 新件） | GitHub Actions 四仓同 checkout（holoaeon/netaeon/mirraeon/qicangaeon）多版本矩阵+批闸+unittest——QWEN-R16 8-B 头号结构补齐 | workflow 在仓 |
 
 批总闸：`python -m qicangaeon.qc_ledger batch` → 36/36（core 20+
-ledger 9+README 锁 7——QX-V1 INC-004 孵化登记入账）。
+ledger 9+README 锁 7——QX-V1 INC-004 + ED-V1 INC-005 孵化登记入账）。
 
 ## 验真路径（2 分钟口径）
 

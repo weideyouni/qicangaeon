@@ -263,6 +263,13 @@ INCUBATION_REGISTRY: List[Dict[str, str]] = [
              "d299ecd（建仓执行端=qixiaeon 自身）；本仓管孵化、"
              "qixiaeon 管生成骨架，两环相邻同承 M07 全息相似性"
              "口径"},
+    {"id": "INC-005", "name": "eduaeon（教育环·纪元族"
+     "第八员·ring26）", "status": "done",
+     "note": "5 号孵化实例：ED-V1 跨仓派单落 eduaeon 首笔 "
+             "dc132769（建仓执行端=eduaeon 自身，七步孵化"
+             "协议第三次应用）；本仓管孵化、eduaeon 管教育"
+             "域垂类（EduRing→holoaeon.edu_gate ring8 为"
+             "机制真源，域层与机制层不混）"},
 ]
 
 
@@ -360,15 +367,18 @@ def check_qc_core() -> Dict[str, Any]:
         "建仓→全域装载→投喂包→执行回执→记忆回填）——全局新"
         "项目一律独立建仓独立启动")
     add("incubation_registry_seeded",
-        len(INCUBATION_REGISTRY) == 4
+        len(INCUBATION_REGISTRY) == 5
         and INCUBATION_REGISTRY[0]["status"] == "done"
         and all(r["status"] == "designed"
                 for r in INCUBATION_REGISTRY[1:3])
         and INCUBATION_REGISTRY[3]["id"] == "INC-004"
-        and INCUBATION_REGISTRY[3]["status"] == "done",
-        "孵化登记账 4 条：1 号=本仓实例（done），2/3 号候选"
+        and INCUBATION_REGISTRY[3]["status"] == "done"
+        and INCUBATION_REGISTRY[4]["id"] == "INC-005"
+        and INCUBATION_REGISTRY[4]["status"] == "done",
+        "孵化登记账 5 条：1 号=本仓实例（done），2/3 号候选"
         "（designed——待权威源/碳基点单，不虚称已立项），4 号="
-        "qixiaeon 启曦（done，QX-V1 跨仓派单）")
+        "qixiaeon 启曦（done，QX-V1 跨仓派单），5 号=eduaeon 教育环"
+        "（done，ED-V1 跨仓派单）")
     add("incubation_inc004_binding",
         "qixiaeon" in INCUBATION_REGISTRY[3]["name"]
         and "d299ecd" in INCUBATION_REGISTRY[3]["note"]
