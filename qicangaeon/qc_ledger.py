@@ -185,9 +185,11 @@ def check_ledger() -> Dict[str, Any]:
 
     # 孵化登记账
     add("incubation_registry_consistent",
-        len(qc_core.INCUBATION_REGISTRY) == 3
-        and qc_core.INCUBATION_REGISTRY[0]["id"] == "INC-001",
-        "孵化登记账 3 条在册（全局独立建仓范式）")
+        len(qc_core.INCUBATION_REGISTRY) == 4
+        and qc_core.INCUBATION_REGISTRY[0]["id"] == "INC-001"
+        and qc_core.INCUBATION_REGISTRY[3]["id"] == "INC-004",
+        "孵化登记账 4 条在册（全局独立建仓范式 + QX-V1 派单 "
+        "INC-004）")
 
     # 缺陷修法账（QWEN-R16 三+一缺陷——QC-V2 修法可指认）
     add("defect_ledger_fixed",
@@ -255,7 +257,7 @@ def check_readme_sync() -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
-# §4 批总闸（qc_core 19+ledger 8+README 锁 7）
+# §4 批总闸（qc_core 20+ledger 9+README 锁 7）
 # ---------------------------------------------------------------------------
 
 

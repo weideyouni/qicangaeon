@@ -5,9 +5,9 @@
   一、DF-001 修法（or True 恒真→真断言）
   二、DF-002 修法（重言式闸→只读对账+模块级回填）
   三、DF-003/DF-004 修法（README 口径+CI 在仓）
-  四、缺陷修法账+批总闸 35（全绿闭环——设计即账）
+  四、缺陷修法账+批总闸 36（全绿闭环——设计即账）
 
-R2 惯例：本套件锁当批精确值（35/9/4），历史套件下限化自持。
+R2 惯例：本套件锁当批精确值（36/9/4），历史套件下限化自持。
 """
 
 import os
@@ -38,9 +38,9 @@ class T1DefectOne(unittest.TestCase):
         self.assertTrue(gate["ok"])
 
     def test_qc_core_gates_19(self):
-        """核心闸 19/19（修法不增不减——真断言替换恒真）。"""
+        """核心闸 20/20（QX-V1 增 INC-004 闸；修法不虚拟）。"""
         r = qc.check_qc_core()
-        self.assertEqual((r["total"], r["failed"]), (19, 0))
+        self.assertEqual((r["total"], r["failed"]), (20, 0))
 
 
 class T2DefectTwo(unittest.TestCase):
@@ -82,11 +82,11 @@ class T3DefectThreeFour(unittest.TestCase):
         self.assertNotIn("Ran 24 tests", text)
         self.assertNotIn("即 FAIL）。", text)
 
-    def test_readme_covers_35(self):
-        """README 口径含批总闸实测 35（与 check_batch 对账）。"""
+    def test_readme_covers_36(self):
+        """README 口径含批总闸实测 36（与 check_batch 对账）。"""
         text = open(os.path.join(ROOT, "README.md"),
                     encoding="utf-8").read()
-        self.assertIn("35", text)
+        self.assertIn("36", text)
 
     def test_ci_workflow_present(self):
         """CI workflow 在仓（QWEN-R16 8-B 头号结构补齐）。"""
@@ -124,13 +124,13 @@ class T4DefectLedgerBatch(unittest.TestCase):
         for e in ql.DEFECT_LEDGER:
             self.assertIn("QWEN-R16", e["source"])
 
-    def test_batch_35_all_pass(self):
-        """批总闸 35/35（core 19+ledger 9+README 锁 7）——
-        QC-V1 33+缺陷修法 2 闸。"""
+    def test_batch_36_all_pass(self):
+        """批总闸 36/36（core 20+ledger 9+README 锁 7）——
+        QC-V1 33+缺陷修法 2 闸+QX-V1 INC-004 闸。"""
         r = ql.check_batch()
         self.assertEqual(r["verdict"], "PASS")
         self.assertEqual((r["total"], r["passed"], r["failed"]),
-                         (35, 35, 0))
+                         (36, 36, 0))
 
     def test_readme_sync_locked(self):
         """README 锁全绿。"""

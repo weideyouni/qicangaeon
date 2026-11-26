@@ -174,15 +174,19 @@ class T4IncubationLedgerBatch(unittest.TestCase):
             self.assertTrue(p["step"].startswith(steps[i]))
             self.assertTrue(p["act"])
 
-    def test_incubation_registry_three(self):
-        """孵化登记账 3 条（1 done+2 designed）。"""
-        self.assertEqual(len(qc.INCUBATION_REGISTRY), 3)
+    def test_incubation_registry_four(self):
+        """孵化登记账 4 条（2 done+2 designed；INC-004=QX-V1）。"""
+        self.assertEqual(len(qc.INCUBATION_REGISTRY), 4)
         self.assertEqual(
             qc.INCUBATION_REGISTRY[0]["status"], "done")
         self.assertEqual(
             qc.INCUBATION_REGISTRY[0]["id"], "INC-001")
-        for r in qc.INCUBATION_REGISTRY[1:]:
+        for r in qc.INCUBATION_REGISTRY[1:3]:
             self.assertEqual(r["status"], "designed")
+        self.assertEqual(
+            qc.INCUBATION_REGISTRY[3]["id"], "INC-004")
+        self.assertEqual(
+            qc.INCUBATION_REGISTRY[3]["status"], "done")
 
     def test_ring24_adjusted(self):
         """ring24 在案（投喂 ring-25 口径 adjusted）。"""
@@ -199,9 +203,9 @@ class T4IncubationLedgerBatch(unittest.TestCase):
             ql.append_dredge("")
 
     def test_qc_core_gates_19(self):
-        """启藏核心自检闸 19/19。"""
+        """启藏核心自检闸 20/20（QX-V1 增 INC-004 闸）。"""
         r = qc.check_qc_core()
-        self.assertEqual((r["total"], r["failed"]), (19, 0))
+        self.assertEqual((r["total"], r["failed"]), (20, 0))
 
     def test_ledger_gates_7(self):
         """账本闸 7/7——QC-V2 增至 9：下限化（R2 惯例第七例）。"""
@@ -210,7 +214,7 @@ class T4IncubationLedgerBatch(unittest.TestCase):
         self.assertEqual(r["failed"], 0)
 
     def test_batch_33_all_pass(self):
-        """批总闸 33/33——QC-V2 增至 35：下限化（R2 惯例第七例）。"""
+        """批总闸 33/33——QC-V2 增至 35、QX-V1 增至 36：下限化（R2 惯例第七例）。"""
         r = ql.check_batch()
         self.assertEqual(r["verdict"], "PASS")
         self.assertGreaterEqual(r["total"], 33)

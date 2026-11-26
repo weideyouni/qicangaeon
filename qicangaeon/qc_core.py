@@ -257,11 +257,17 @@ INCUBATION_REGISTRY: List[Dict[str, str]] = [
              "Y 维），独立立项待碳基点单"},
     {"id": "INC-003", "name": "可寻址 IPU", "status": "designed",
      "note": "投喂 6 项待喂入之一——无权威源不立项，登记候选"},
+    {"id": "INC-004", "name": "qixiaeon（启曦·分形式生成骨架·"
+     "ring25）", "status": "done",
+     "note": "4 号孵化实例：QX-V1 跨仓派单落 qixiaeon 首笔 "
+             "d299ecd（建仓执行端=qixiaeon 自身）；本仓管孵化、"
+             "qixiaeon 管生成骨架，两环相邻同承 M07 全息相似性"
+             "口径"},
 ]
 
 
 # ---------------------------------------------------------------------------
-# §6 总闸（十九闸全绿）
+# §6 总闸（二十闸全绿）
 # ---------------------------------------------------------------------------
 
 
@@ -354,12 +360,21 @@ def check_qc_core() -> Dict[str, Any]:
         "建仓→全域装载→投喂包→执行回执→记忆回填）——全局新"
         "项目一律独立建仓独立启动")
     add("incubation_registry_seeded",
-        len(INCUBATION_REGISTRY) == 3
+        len(INCUBATION_REGISTRY) == 4
         and INCUBATION_REGISTRY[0]["status"] == "done"
         and all(r["status"] == "designed"
-                for r in INCUBATION_REGISTRY[1:]),
-        "孵化登记账 3 条：1 号=本仓实例（done），2/3 号候选"
-        "（designed——待权威源/碳基点单，不虚称已立项）")
+                for r in INCUBATION_REGISTRY[1:3])
+        and INCUBATION_REGISTRY[3]["id"] == "INC-004"
+        and INCUBATION_REGISTRY[3]["status"] == "done",
+        "孵化登记账 4 条：1 号=本仓实例（done），2/3 号候选"
+        "（designed——待权威源/碳基点单，不虚称已立项），4 号="
+        "qixiaeon 启曦（done，QX-V1 跨仓派单）")
+    add("incubation_inc004_binding",
+        "qixiaeon" in INCUBATION_REGISTRY[3]["name"]
+        and "d299ecd" in INCUBATION_REGISTRY[3]["note"]
+        and "M07" in INCUBATION_REGISTRY[3]["note"],
+        "INC-004 落位绑定（QX-V1）：名带 qixiaeon、note 带首笔 "
+        "d299ecd 与 M07 同承口径——跨仓派单可回查到具体仓与提交")
 
     # 环链与命名裁决
     add("ring24_declared",
