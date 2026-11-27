@@ -95,7 +95,10 @@ INC-002 三维张量 Y 权重标定（designed·待样本）/INC-003 可寻址 I
 首笔 d299ecd；本仓管孵化、qixiaeon 管生成骨架，两环相邻同承 M07）
 /INC-005 eduaeon 教育环（done·ED-V1 跨仓派单，首笔 dc132769；
 本仓管孵化、eduaeon 管教育域垂类——EduRing→holoaeon.edu_gate
-ring8 为机制真源，域层与机制层不混）。
+ring8 为机制真源，域层与机制层不混）
+/INC-007 forgaeon 锻闸（done·FG-V1 跨仓派单，首笔 b7bf288；
+本仓管孵化、forgaeon 管建仓质检——六病型前置闸，与启藏孵化环正交分工；
+编号依 FG-V1 投喂指定，INC-006 预留未入账，跳号在案）。
 
 ## 工程结构（实测口径）
 
@@ -106,7 +109,8 @@ ring8 为机制真源，域层与机制层不混）。
 | CI（QC-V2 新件） | GitHub Actions 四仓同 checkout（holoaeon/netaeon/mirraeon/qicangaeon）多版本矩阵+批闸+unittest——QWEN-R16 8-B 头号结构补齐 | workflow 在仓 |
 
 批总闸：`python -m qicangaeon.qc_ledger batch` → 36/36（core 20+
-ledger 9+README 锁 7——QX-V1 INC-004 + ED-V1 INC-005 孵化登记入账）。
+ledger 9+README 锁 7——QX-V1 INC-004 + ED-V1 INC-005 + FG-V1 INC-007
+孵化登记入账）。
 
 ## 验真路径（2 分钟口径）
 

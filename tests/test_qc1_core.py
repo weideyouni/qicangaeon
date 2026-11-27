@@ -174,9 +174,9 @@ class T4IncubationLedgerBatch(unittest.TestCase):
             self.assertTrue(p["step"].startswith(steps[i]))
             self.assertTrue(p["act"])
 
-    def test_incubation_registry_five(self):
-        """孵化登记账 5 条（3 done+2 designed；INC-005=ED-V1）。"""
-        self.assertEqual(len(qc.INCUBATION_REGISTRY), 5)
+    def test_incubation_registry_six(self):
+        """孵化登记账 6 条（3 done+2 designed；INC-005=ED-V1，INC-007=FG-V1）。"""
+        self.assertEqual(len(qc.INCUBATION_REGISTRY), 6)
         self.assertEqual(
             qc.INCUBATION_REGISTRY[0]["status"], "done")
         self.assertEqual(
@@ -193,6 +193,12 @@ class T4IncubationLedgerBatch(unittest.TestCase):
             qc.INCUBATION_REGISTRY[4]["status"], "done")
         self.assertEqual(
             qc.INCUBATION_REGISTRY[4]["name"].find("eduaeon"), 0)
+        self.assertEqual(
+            qc.INCUBATION_REGISTRY[5]["id"], "INC-007")
+        self.assertEqual(
+            qc.INCUBATION_REGISTRY[5]["status"], "done")
+        self.assertEqual(
+            qc.INCUBATION_REGISTRY[5]["name"].find("forgaeon"), 0)
 
     def test_ring24_adjusted(self):
         """ring24 在案（投喂 ring-25 口径 adjusted）。"""

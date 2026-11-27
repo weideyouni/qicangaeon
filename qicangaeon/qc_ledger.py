@@ -185,12 +185,13 @@ def check_ledger() -> Dict[str, Any]:
 
     # 孵化登记账
     add("incubation_registry_consistent",
-        len(qc_core.INCUBATION_REGISTRY) == 5
+        len(qc_core.INCUBATION_REGISTRY) == 6
         and qc_core.INCUBATION_REGISTRY[0]["id"] == "INC-001"
         and qc_core.INCUBATION_REGISTRY[3]["id"] == "INC-004"
-        and qc_core.INCUBATION_REGISTRY[4]["id"] == "INC-005",
-        "孵化登记账 5 条在册（全局独立建仓范式 + QX-V1 派单 "
-        "INC-004 + ED-V1 派单 INC-005）")
+        and qc_core.INCUBATION_REGISTRY[4]["id"] == "INC-005"
+        and qc_core.INCUBATION_REGISTRY[5]["id"] == "INC-007",
+        "孵化登记账 6 条在册（全局独立建仓范式 + QX-V1 派单 "
+        "INC-004 + ED-V1 派单 INC-005 + FG-V1 派单 INC-007）")
 
     # 缺陷修法账（QWEN-R16 三+一缺陷——QC-V2 修法可指认）
     add("defect_ledger_fixed",
